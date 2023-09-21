@@ -1,38 +1,24 @@
 #include "main.h"
-
 /**
- * leet - function thst encodes a string into 1337.
- * Letters a and A should be replaced by 4
- * Letters e and E should be replaced by 3
- * Letters o and O should be replaced by 0
- * Letters t and T should be replaced by 7
- * Letters l and L should be replaced by 1
- * @s: pointer to string.
- *
- * Return: pointer to s.
+ * leet - encode into 1337speak
+ * @n: input value
+ * Return: n value
  */
-
-char *leet(char *s)
+char *leet(char *n)
 {
-	int string_length, leetcount;
-	char leetletters[] = "aAeEoOtTlL";
-	char leetnumbers[] = "4433007711";
+	int i, j;
+	char s1[] = "aAeEoOtTlL";
+	char s2[] = "4433007711";
 
-/* scan through string */
-	string_length = 0;
-	while (s[string_length] != '\0')
-/* check whether leetletters is found */
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		leetcount = 0;
-		while (leetcount < 10)
-		{	
-			if (leetletters[leetcount] == s[string_length])
+		for (j = 0; j < 10; j++)
+		{
+			if (n[i] == s1[j])
 			{
-				s[string_length] = leetnumbers[leetcount];
+				n[i] = s2[j];
 			}
-			leetcount++;
 		}
-		string_length++;
 	}
-	return (s);
+	return (n);
 }
